@@ -1,19 +1,21 @@
-#include "Queue.cpp"
-#include "Student.cpp"
+#include "Stack.cpp"
+#include "Student.h"
 
 int main() {
     printf("Hello World!\n");
-    Queue<Student> students;
+    Stack<Student> students;
     Student newStudent("John", 16, "mate");
     Student newStudent2("Juana", 18, "Física");
-    students.enqueue(newStudent);
-    students.enqueue(newStudent2);
-    students.enqueue(newStudent);
+    students.push(newStudent);
+    students.push(newStudent2);
+    students.push(newStudent);
     students.display();
 
-    std::cout << students.dequeue() << "ha sido eliminado" << std::endl;
+    std::cout << students.pop() << "ha sido eliminado" << std::endl;
 
     students.display();
     std::cout << students.peekFront() << std::endl;
     std::cout << students.peekRear() << std::endl;
+    std::cout << students.getSize() << std::endl;
+
 }

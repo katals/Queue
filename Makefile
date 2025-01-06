@@ -2,7 +2,7 @@ CXX = g++
 
 CPPFLAGS = -std=c++11 -Wall -Wextra
 
-SOURCES = Node.cpp Queue.cpp main.cpp
+SOURCES = Node.cpp Stack.cpp main.cpp Student.cpp
 
 TARGET = myprogram
 

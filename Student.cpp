@@ -1,8 +1,9 @@
 #include "Student.h"
 
 std::ostream& operator<<(std::ostream &strm, const Student &student) {
-    return strm << "student (" << student.name << "," << student.age  << "," << student.subject << ")";
+  return strm << "student (" << student.name << "," << student.age  << "," << student.subject << ")";
 }
+
 
 inline int Student::getAge() const {
   return age;

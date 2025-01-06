@@ -1,12 +1,13 @@
 #include <stdexcept>
 #include <iostream>
 
-#include "Queue.h"
+#include "Stack.h"
 #include "Node.h"
 
 template <typename T>
-void Queue<T>:: enqueue(T item) {
+void Stack<T>:: push(T item) {
     auto newNode = std::make_shared<Node<T>>(std::make_unique<T>(item));
+    size++;
     if(isEmpty()) {
       front = newNode;
       rear = newNode;
@@ -14,14 +15,14 @@ void Queue<T>:: enqueue(T item) {
     }
     auto temp = front;
     front = newNode;
-    size++;
+
     front->next = temp;
 }
 
 template <typename T>
-T Queue<T>::dequeue(){
+T Stack<T>::pop(){
     if(isEmpty()) {
-      throw std::runtime_error("Queue is empty!");
+      throw std::runtime_error("Stack is empty!");
     }
     auto temp = front;
     front = front->next;
@@ -34,33 +35,33 @@ T Queue<T>::dequeue(){
 }
 
 template <typename T>
-T Queue<T>::peekFront() const {
+T Stack<T>::peekFront() const {
   if(isEmpty()) {
-    throw std::runtime_error("Queue is empty!");
+    throw std::runtime_error("Stack is empty!");
   }
   return *front->data;
 }
 
 template <typename T>
-T Queue<T>::peekRear() const {
+T Stack<T>::peekRear() const {
   if(isEmpty()) {
-    throw std::runtime_error("Queue is empty!");
+    throw std::runtime_error("Stack is empty!");
   }
   return *rear->data;
 }
 
 template <typename T>
-bool Queue<T>::isEmpty() const {
+bool Stack<T>::isEmpty() const {
   return front == nullptr;
 }
 
 template <typename T>
-int Queue<T>::getSize() const{
+int Stack<T>::getSize() const{
   return size;
 }
 
 template <typename T>
-void Queue<T>::display() const{
+void Stack<T>::display() const{
   auto current = front; // Inicia desde el frente de la cola
   while (current) { // Recorre los nodos mientras no sean nullptr
     T item = *current->data;
